@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gym Website</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+  <style>
+    .wow:first-child {
+      visibility: hidden;
+    }
+	.signin {
+  text-align: center;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+  </style>
+  
+</head>
+<body>
+
+ 
+ <!-- Start Header  -->
+ <header>
+ 	 <div class="container">
+ 	 	<div class="logo">
+ 	 		 <a href="">GO<span>FIT</span></a>
+ 	 	</div>
+ 	 	<a href="javascript:void(0)" class="ham-burger">
+ 	       <span></span>	
+ 	       <span></span>
+ 	 	</a>
+ 	 	<div class="nav">
+ 	 		<ul>
+ 	 		
+				<li><a href="#register">Register</a></li>
+				<li><a href="#login">login</a></li>
+
+
+ 	 		</ul>
+ 	 	</div>
+ 	 </div>
+ </header>
+ <!-- End Header  -->
+
+  <!-- Start Home -->
+  <section class="home wow flash" id="home">
+  	 <div class="container">
+  	 	  <h1 class="wow slideInLeft" data-wow-delay="1s">YOUR <span>BODY</span> IS A REFLECTION </h1>
+  	 	  <h1 class="wow slideInRight" data-wow-delay="1s">OF YOUR <span>LIFESTYLE</span></h1>
+  	 </div>
+  	  <!-- go down -->
+  	      <a href="#about" class="go-down">
+  	      	  <i class="fa fa-angle-down" aria-hidden="true"></i>
+  	      </a>
+  	  <!-- go down -->
+
+  </section>
+  <!-- End Home -->
+
+
+
+
+ <!-- Start register -->
+ <section  class="register" id="register">
+	<h1>Register</h1>
+	<form >
+		<div class="input_box" >
+			<input  type="text" placeholder="First Name">
+			<input type="text" placeholder="last Name">
+		</div>
+		<div class="input_box">
+			<input  type="email" placeholder="your email">
+			<input type="number" placeholder="your number"  >
+		</div>
+        <br>
+
+		<a href=""><button type="submit">Sign Up</button></a><br><bR>
+		<div class="container signin">
+			<p>Already have an account? <a href="#login">Sign in</a>.</p>
+		  </div>
+      
+	</form>
+</section>
+ 
+<!-- End register -->
+
+ <!-- Start login -->
+ <section  class="login" id="login">
+	<h1>login</h1>
+	<form >
+		<br>
+		<div class="input_box" >
+			<input  type="email" placeholder="your email">
+
+		</div><br>
+		<div class="input_box">
+			
+			<input type="number" placeholder="your number "  >
+		</div>
+        <br>
+
+	
+
+			<form>
+				<button formaction="index.html">Login</button>
+			  </form>
+      
+	</form>
+</section>
+ 
+<!-- End login -->
+
+
+
+ <!-- jquery -->
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+
+      $(".ham-burger, .nav ul li a").click(function(){
+       
+        $(".nav").toggleClass("open")
+
+        $(".ham-burger").toggleClass("active");
+      })      
+      $(".accordian-container").click(function(){
+      	$(".accordian-container").children(".body").slideUp();
+      	$(".accordian-container").removeClass("active")
+      	$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+      	$(this).children(".body").slideDown();
+      	$(this).addClass("active")
+      	$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+      })
+
+       $(".nav ul li a, .go-down").click(function(event){
+         if(this.hash !== ""){
+
+              event.preventDefault();
+
+              var hash=this.hash; 
+
+              $('html,body').animate({
+                scrollTop:$(hash).offset().top
+              },800 , function(){
+                 window.location.hash=hash;
+              });
+
+              // add active class in navigation
+              $(".nav ul li a").removeClass("active")
+              $(this).addClass("active")
+         }
+      })
+})
+
+</script>
+<script src="js/wow.min.js"></script>
+<script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       0,
+      }
+    );
+    wow.init();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
